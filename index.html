@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>رداء الخير</title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background-color: #e8f5e9;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+    }
+    header, footer {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+    .container {
+      padding: 2em;
+    }
+    .login-box, .menu {
+      background-color: white;
+      border-radius: 10px;
+      padding: 2em;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    }
+    input, select, textarea, button {
+      width: 100%;
+      margin: 0.5em 0;
+      padding: 0.75em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    button:hover {
+      background-color: #1b5e20;
+    }
+    .hidden {
+      display: none;
+    }
+    img.icon {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>تطبيق رداء الخير</h1>
+  </header>
+
+  <div class="container">
+    <div class="login-box" id="loginBox">
+      <h2>تسجيل الدخول</h2>
+      <input type="text" id="username" placeholder="اسم المستخدم" />
+      <input type="password" id="password" placeholder="كلمة المرور" />
+      <button onclick="login()">دخول</button>
+    </div>
+
+    <div class="menu hidden" id="mainMenu">
+      <h2>مرحباً بك!</h2>
+      <button onclick="openPage('form-donation.html')">
+        <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" class="icon" />
+        تسجيل تبرع بالملابس
+      </button>
+      <button onclick="openPage('list-clothes.html')">
+        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081648.png" class="icon" />
+        عرض الملابس
+      </button>
+      <button onclick="openPage('location.html')">
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" class="icon" />
+        تحديد الموقع
+      </button>
+      <button onclick="openPage('about.html')">
+        <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" class="icon" />
+        من نحن
+      </button>
+      <button onclick="openPage('contact.html')">
+        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" class="icon" />
+        تواصل معنا
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 تطبيق رداء الخير</p>
+  </footer>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if (user && pass) {
+        document.getElementById("loginBox").classList.add("hidden");
+        document.getElementById("mainMenu").classList.remove("hidden");
+      } else {
+        alert("يرجى إدخال اسم المستخدم وكلمة المرور");
+      }
+    }
+
+    function openPage(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>
